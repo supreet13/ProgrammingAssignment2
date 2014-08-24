@@ -1,47 +1,41 @@
-## if the matrix is already inversed, then it will take th prevuosu values, but if the matrix is not calculated, then it will calculate
+## Put comments here that give an overall description of what your
+## functions do
 
-## assign the the value to the matrix adn the invesre
+## this function creates a matrix 
 
-makeCacheMatrix <- function(x = matrix()) 
-{
-  
-  s <- NULL  
-  set <- function(y) 
+makeCacheMatrix <- function(x = matrix())
   {
-    x <<- y
-    s <<- NULL
-  }
-  get <- function() 
-  {
-    x
-  }
-  setsolve <- function(inverse) 
-  {
-    s <<- inverse
-  }
-  getsolve <- function() 
-  {
-    s
-  }  
-  list(set = set, get = get,setsolve = setsolve,getsolve = getsolve)
+                                         m <- NULL
+                                           set <- function(y) {
+                                             x <<- y
+                                             m <<- NULL
+                                           }
+                                           get <- function() x
+                                           setsolve <- function(solve) m <<- solve
+                                           getsolve <- function() m
+                                           list(set = set, get = get,
+                                                setsolve = setsolve,
+                                                getsolve = getsolve)
+                                           
+
 }
 
 
-## inverse the matrix
+## This function returns inverse of Matrix
 
-cacheSolve <- function(x) 
-{
+cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
-  
-  s <- x$getsolve()
-  
-  if(!is.null(s)) 
-    {
-      message("getting cached data")
-      return(s)
-    }
-  data <- x$get()
-  s <- solve(data)
-  x$setsolve(s)
-  s
+}
+makeVector <- function(x = matrix()) {
+  m <- NULL
+  set <- function(y) {
+    x <<- y
+    m <<- NULL
+  }
+  get <- function() x
+  setsolve <- function(solve) m <<- solve
+  getsolve <- function() m
+  list(set = set, get = get,
+       setsolve = setsolve,
+       getsolve = getsolve)
 }
